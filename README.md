@@ -1,79 +1,58 @@
-# UKRAINE — WOMEN & CONFLICT
+# Ciência Delas
 
-**Humanitarian Intelligence Dashboard — prototype**
+**Dados que revelam histórias. Ciência que dá visibilidade.**
 
-An interactive prototype showing how an analysis platform for documented violence against women and girls in the war in Ukraine could work.
+Protótipo conceitual de experiência digital desenvolvido para a **Ciência Delas**, uma iniciativa que dá visibilidade à presença, à realidade e às contribuições das mulheres na ciência, na tecnologia e na sociedade.
 
-> ⚠️ **Demonstration data only.** Every figure in this app comes from a synthetic, seeded dataset (`src/data/incidents.ts`).
-> The figures are **not official statistics**, do not describe real events or people, and must not be cited.
-> The institutions listed under *Sources & Methodology* are **potential** data sources. None of them is integrated.
+Recorte temático: **Mulheres em zonas de conflito: a violência contra mulheres durante a guerra da Ucrânia.**
 
-**Live demo:** https://lscaio.github.io/DashBoard/
+> **Protótipo • Dados demonstrativos.** Todos os números vêm de um pequeno conjunto fictício (`src/data/demoData.ts`, 36 registros marcados como DEMO DATA).
+> Eles **não representam estatísticas oficiais** e não descrevem pessoas ou eventos reais. As instituições citadas aparecem apenas como fontes de referência para uma futura implementação.
 
-## Quick start
+**Site:** https://lscaio.github.io/DashBoard/
+
+## Como rodar
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # type-check + production build
-npm run preview    # serve the production build
+npm run build      # verificação de tipos + build de produção
 ```
 
-Other scripts: `npm run lint` (oxlint), `npm run format` (prettier), `npm run typecheck`.
+## A experiência
 
-## Stack
+1. **Abertura:** "CIÊNCIA DELAS" → "Quando os números falam, quem estamos ouvindo?" → "Mulheres."
+2. **Hero:** título, chamada "Explorar o projeto" e uma ilustração abstrata (o símbolo ♀ como instrumento científico, com órbitas e uma constelação de dados).
+3. **Contexto:** texto editorial sobre como a guerra muda a vida das mulheres.
+4. **Dados:** quatro indicadores grandes, o gráfico "A violência ao longo do tempo" (2022–2026, com seleção de categoria) e "Nem toda violência é visível".
+5. **Quanto tempo?:** contador calculado ao vivo desde 24/02/2022, com a ressalva de que não representa um episódio contínuo de violência.
+6. **Mapa:** mapa estilizado em hexágonos, com tooltip de região, registros demonstrativos e período.
+7. **Por trás do número:** três narrativas conceituais.
+8. **E onde entra a ciência?:** Ciência, Tecnologia e Mulheres como produtoras de conhecimento.
+9. **Quem produz esses dados?** e **O que os dados não conseguem mostrar?**
+10. **Encerramento.**
 
-React 19 · TypeScript (strict) · Vite · Tailwind CSS v4 · Recharts · Framer Motion · Lucide icons
+Não há backend, login, banco de dados nem API. Tudo roda com dados locais.
 
-## What's inside
+## Tecnologia
 
-| Area | Highlights |
-|---|---|
-| **Overview** | Animated "How long has the violence persisted?" counter (since 24 Feb 2022, computed live), documented reporting period, a 5-question briefing, KPI cards with count-up and trend |
-| **Timeline** | Monthly area chart with series toggle (all / sexual / physical / conflict-related / other), detailed tooltip, shaded reporting-lag area |
-| **Geography** | Schematic hex-tile map of Ukraine's regions: LOW/MEDIUM/HIGH legend, hover tooltip (incidents, reporting period, data confidence), click to filter, ranked list |
-| **Violence types** | Donut and breakdown list with count, share and trend; click to filter |
-| **CRSV** | A restrained section with its own metrics, a monthly chart and an underreporting notice |
-| **Victim profiles** | Age groups, civilian/displaced, context and location, all as privacy-preserving aggregates |
-| **Documentation gap** | A conceptual "Known / Underreported / Unknown" visual. It makes no numeric estimate. |
-| **Incident records** | Search, type filter, sortable columns, pagination, badges; a row opens a detail drawer with a "View source" placeholder |
-| **Filters** | Date range (with presets), region, type, source, verification, victim group. They update every card, chart, the map and the table. |
-| **Export** | CSV of the filtered records (labelled as demo data), PDF through the print dialog, and a PNG placeholder |
-| **Transparency** | "Demonstration data", "Not official statistics", "Documented cases only" and "Data limitations apply" labels throughout |
-
-## Project structure
+React · TypeScript · Vite · Tailwind CSS v4 · Framer Motion · Recharts · Lucide React
 
 ```
 src/
   components/
-    charts/      TimelineChart, ViolenceTypeChart, VictimProfile, tooltip & theme
-    dashboard/   StatCard/StatGrid, ConflictDuration, BriefingPanel, CrsvSection,
-                 DocumentationGap, KeyObservations, MethodologyPanel, ExportMenu …
-    filters/     FilterPanel, ActiveFilters, form fields
-    layout/      Sidebar, DashboardHeader, SplashScreen, Logo
-    map/         GeographicMap (hex tile cartogram)
-    sources/     SourceCard, SourcesSection
-    tables/      IncidentTable, IncidentDrawer
-    ui/          Panel, Badge, DataLabel, CountUp, Skeleton, InfoTip, Toaster …
-  context/       Dashboard state (filters, selection, toasts)
-  data/          incidents.ts (DEMO DATA), regions, labels, potential sources
-  hooks/         scroll-spy, media query
-  pages/         DashboardPage
-  types/         Domain types
-  utils/         filtering & aggregation, dates, CSV export, formatting
+    art/        HeroArt (ilustração SVG)
+    charts/     YearlyChart, TypesChart
+    layout/     Intro, TopNav, Footer
+    map/        UkraineHexMap, geometria dos hexágonos
+    sections/   Hero, Context, DataSection, TimeSection, MapSection,
+                Stories, Science, Sources, Limits, Finale
+    ui/         Reveal, CountUp, DemoTag, SectionHeading
+  data/         demoData.ts (DEMO DATA), regions, labels
+  hooks/        scroll-spy da navegação
+  utils/        datas e contagens
 ```
 
-## Deployment
+## Publicação
 
-Every push to `main` is deployed to GitHub Pages by `.github/workflows/deploy.yml`. One-time setup: in **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**.
-
-## Connecting real data
-
-Replace `DEMO_INCIDENTS` in `src/data/incidents.ts` with records that match the `Incident` type, and update `DATASET_META`. All aggregation happens in `src/utils/analytics.ts`, so the UI needs no other changes. Before you remove the demo labels, review them together with the methodology text.
-
-## Privacy & ethics
-
-- Records have no names, addresses, contact details, narrative descriptions or other identifying fields.
-- Counts are presented as **documented records**, never as the total scale of violence.
-- Regions are compared on "reported incidents in dataset", with a reminder that population, access and documentation capacity differ.
-- Imagery is not graphic, and the visual language is restrained.
+Cada push na `main` publica o site no GitHub Pages pelo workflow `.github/workflows/deploy.yml`. Configuração única: em **Settings → Pages → Build and deployment**, defina **Source** como **GitHub Actions**.

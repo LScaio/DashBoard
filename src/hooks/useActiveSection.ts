@@ -1,36 +1,30 @@
 import { useEffect, useState } from 'react'
 
-/** Scroll-spy: the active section is the last anchor whose top has passed 30% of the viewport. */
-export function useActiveSection(ids: string[], enabled = true): string {
-  const [active, setActive] = useState(ids[0])
+/** Scroll-spy simples: a seção ativa é a última cujo topo passou de 35% da tela. */
+export function useActiveSection(ids: readonly string[]): string | null {
+  const [active, setActive] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!enabled) return
     let frame = 0
     const update = () => {
       frame = 0
-      const threshold = window.innerHeight * 0.3
-      let current = ids[0]
+      let current: string | null = null
       for (const id of ids) {
         const el = document.getElementById(id)
-        if (el && el.getBoundingClientRect().top <= threshold) current = id
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.35) current = id
       }
-      // At the very bottom, the last section is active even if its header is low on the page.
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = ids[ids.length - 1]
       setActive(current)
     }
     const onScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(update)
+      if (!frame) frame = requestAnimationFrame(update)
     }
     update()
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
     return () => {
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-      if (frame) window.cancelAnimationFrame(frame)
+      if (frame) cancelAnimationFrame(frame)
     }
-  }, [ids, enabled])
+  }, [ids])
 
   return active
 }
