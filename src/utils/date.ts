@@ -1,78 +1,27 @@
-const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const MONTHS_LONG = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-]
+const MESES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+const MESES_CURTOS = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 
-/** Parses an ISO date (YYYY-MM-DD) as a UTC date. */
+/** Interpreta uma data ISO (AAAA-MM-DD) como UTC. */
 export function parseISODate(iso: string): Date {
   const [y, m, d] = iso.split('-').map(Number)
   return new Date(Date.UTC(y, m - 1, d))
 }
 
-export function toISODate(date: Date): string {
-  return date.toISOString().slice(0, 10)
-}
-
 export function todayISO(): string {
   const now = new Date()
-  return toISODate(new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())))
+  return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())).toISOString().slice(0, 10)
 }
 
-/** "12 Mar 2024" */
-export function formatDate(iso: string): string {
-  const d = parseISODate(iso)
-  return `${d.getUTCDate()} ${MONTHS_SHORT[d.getUTCMonth()]} ${d.getUTCFullYear()}`
-}
-
-/** "24 February 2022" */
+/** "24 de fevereiro de 2022" */
 export function formatDateLong(iso: string): string {
   const d = parseISODate(iso)
-  return `${d.getUTCDate()} ${MONTHS_LONG[d.getUTCMonth()]} ${d.getUTCFullYear()}`
+  return `${d.getUTCDate()} de ${MESES[d.getUTCMonth()]} de ${d.getUTCFullYear()}`
 }
 
-/** "2024-03" → "Mar 2024" */
-export function formatMonthKey(key: string): string {
-  const [y, m] = key.split('-').map(Number)
-  return `${MONTHS_SHORT[m - 1]} ${y}`
-}
-
-/** "2024-03" → "Mar ’24" (compact axis label) */
-export function formatMonthKeyShort(key: string): string {
-  const [y, m] = key.split('-').map(Number)
-  return `${MONTHS_SHORT[m - 1]} ’${String(y).slice(2)}`
-}
-
-export function monthKey(iso: string): string {
-  return iso.slice(0, 7)
-}
-
-/** All month keys between two ISO dates, inclusive. */
-export function monthRange(fromISO: string, toISO: string): string[] {
-  const keys: string[] = []
-  const from = parseISODate(fromISO)
-  const to = parseISODate(toISO)
-  let y = from.getUTCFullYear()
-  let m = from.getUTCMonth()
-  while (y < to.getUTCFullYear() || (y === to.getUTCFullYear() && m <= to.getUTCMonth())) {
-    keys.push(`${y}-${String(m + 1).padStart(2, '0')}`)
-    m++
-    if (m === 12) {
-      m = 0
-      y++
-    }
-  }
-  return keys
+/** "mar 2024" */
+export function formatMonthYear(iso: string): string {
+  const d = parseISODate(iso)
+  return `${MESES_CURTOS[d.getUTCMonth()]} ${d.getUTCFullYear()}`
 }
 
 export interface Duration {
@@ -82,7 +31,7 @@ export interface Duration {
   totalDays: number
 }
 
-/** Calendar duration between two ISO dates (years, months, remaining days). */
+/** Duração de calendário entre duas datas ISO (anos, meses, dias restantes). */
 export function calendarDuration(fromISO: string, toISO: string): Duration {
   const from = parseISODate(fromISO)
   const to = parseISODate(toISO)
