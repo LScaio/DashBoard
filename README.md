@@ -8,6 +8,8 @@ An interactive prototype showing how an analysis platform for documented violenc
 > The figures are **not official statistics**, do not describe real events or people, and must not be cited.
 > The institutions listed under *Sources & Methodology* are **potential** data sources. None of them is integrated.
 
+**Live demo:** https://lscaio.github.io/DashBoard/
+
 ## Quick start
 
 ```bash
@@ -60,6 +62,10 @@ src/
   types/         Domain types
   utils/         filtering & aggregation, dates, CSV export, formatting
 ```
+
+## Deployment
+
+Every push to `main` is deployed to GitHub Pages by `.github/workflows/deploy.yml`. One-time setup: in **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**.
 
 ## Connecting real data
 
