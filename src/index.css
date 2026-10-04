@@ -2,68 +2,51 @@
 
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Noite — fundos escuros com leve tom violeta */
-  --color-night-950: #08071a;
-  --color-night-900: #0d0b1f;
-  --color-night-800: #15122e;
-  --color-night-700: #1f1a42;
-  --color-night-600: #2c2558;
+  --color-bg: #080b12;
+  --color-panel: #10151f;
+  --color-panel-2: #151b27;
+  --color-line: #202938;
+  --color-line-2: #2b3547;
 
-  /* Lilás / violeta / íris — a cor da identidade */
-  --color-lilac-100: #ede9fe;
-  --color-lilac-200: #ddd6fe;
-  --color-lilac-300: #c4b5fd;
-  --color-lilac-400: #a78bfa;
-  --color-violet: #8b5cf6;
-  --color-iris: #6366f1;
-  --color-sky-soft: #93c5fd;
+  --color-ink: #e6e9f0;
+  --color-ink-2: #a3acbd;
+  --color-ink-3: #6b7588;
 
-  /* Papel — seções editoriais claras */
-  --color-paper: #f7f4fe;
-  --color-paper-ink: #1c1537;
+  --color-primary: #7c83fd;
+  --color-primary-2: #a78bfa;
+  --color-alert: #f05252;
+  --color-warn: #f5a524;
+  --color-ok: #22c55e;
 }
 
 :root {
   color-scheme: dark;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
-  background: var(--color-night-900);
-  color: #e9e6f7;
+  background: var(--color-bg);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-section[id] {
-  scroll-margin-top: 72px;
 }
 
 .tabular {
   font-variant-numeric: tabular-nums;
 }
 
-/* Grão sutil para a textura de "exposição" */
-.grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #2b3547 transparent;
+}
+
+select {
+  background-image: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   *,
   *::before,
   *::after {
