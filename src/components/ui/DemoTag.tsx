@@ -1,23 +1,17 @@
-import { FlaskConical } from 'lucide-react'
+import { cn } from '../../utils/format'
 
-/** Selo de transparência: os números exibidos são ilustrativos. */
-export function DemoTag({
-  text = 'Dados ilustrativos — não representam estatísticas oficiais',
-  tone = 'dark',
-}: {
-  text?: string
-  tone?: 'dark' | 'light'
-}) {
+/** Small marker shown on every figure derived from the demonstration dataset. */
+export function DemoTag({ label = 'Demo data', className }: { label?: string; className?: string }) {
   return (
     <span
-      className={
-        tone === 'dark'
-          ? 'inline-flex items-center gap-1.5 rounded-full border border-lilac-300/25 bg-lilac-300/[0.06] px-3 py-1 text-[10.5px] font-medium uppercase tracking-[0.14em] text-lilac-200/90'
-          : 'inline-flex items-center gap-1.5 rounded-full border border-violet/25 bg-violet/[0.06] px-3 py-1 text-[10.5px] font-medium uppercase tracking-[0.14em] text-violet'
-      }
+      title="Synthetic demonstration data — not official statistics"
+      className={cn(
+        'inline-flex items-center gap-1 whitespace-nowrap rounded border border-warn/30 bg-warn/[0.08] px-1.5 py-0.5 font-mono text-[9.5px] font-medium uppercase tracking-wider text-warn',
+        className,
+      )}
     >
-      <FlaskConical className="h-3 w-3 shrink-0" aria-hidden />
-      {text}
+      <span className="h-1 w-1 rounded-full bg-warn" aria-hidden />
+      {label}
     </span>
   )
 }

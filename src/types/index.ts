@@ -1,4 +1,4 @@
-/** Tipos do protótipo Ciência Delas. Todos os registros usados são DEMO DATA. */
+/** Domain types for the Ciência Delas Data Lab prototype. All records are DEMO DATA. */
 
 export type RegionId =
   | 'volyn'
@@ -31,29 +31,49 @@ export type RegionId =
 export interface Region {
   id: RegionId
   name: string
-  /** Sigla exibida dentro do hexágono */
+  /** Short code shown inside the map tile */
   short: string
-  /** Posição no mapa de hexágonos */
+  /** Position on the hex-tile map */
   col: number
   row: number
 }
 
 export type ViolenceType = 'sexual' | 'physical' | 'psychological' | 'displacement' | 'detention' | 'other'
 
-export type VictimGroup = 'adulta' | 'menina' | 'idosa'
+export type VictimGroup = 'adult' | 'under-18' | 'older'
 
-export type RecordStatus = 'documentado' | 'em-verificacao'
+export type AgeGroup = 'under-18' | '18-24' | '25-34' | '35-44' | '45-54' | '55+'
 
-export type SourceType = 'monitoramento' | 'humanitaria' | 'registro-publico' | 'pesquisa'
+export type Source = 'un-report' | 'ngo-report' | 'government' | 'health-facility' | 'media-verified'
 
-export interface DemoRecord {
-  /** Identificador sintético — nunca ligado a um caso real */
+export type Verification = 'verified' | 'corroborated' | 'reported' | 'unverified'
+
+export type RecordStatus = 'documented' | 'under-review' | 'referred'
+
+export interface Incident {
+  /** Synthetic identifier — never linked to a real case */
   id: string
-  /** Data ISO (AAAA-MM-DD) */
+  /** ISO date (YYYY-MM-DD) */
   date: string
   region: RegionId
   type: ViolenceType
   victimGroup: VictimGroup
+  /** Only available for a subset of records */
+  ageGroup: AgeGroup | null
+  source: Source
+  verification: Verification
   status: RecordStatus
-  sourceType: SourceType
 }
+
+export interface Filters {
+  yearFrom: number
+  yearTo: number
+  region: RegionId | 'all'
+  type: ViolenceType | 'all'
+  victimGroup: VictimGroup | 'all'
+  verification: Verification | 'all'
+}
+
+export type PageId = 'overview' | 'timeline' | 'geographic' | 'violence' | 'women' | 'incidents' | 'sources'
+
+export type Confidence = 'High' | 'Medium' | 'Low'
