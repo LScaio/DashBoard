@@ -1,24 +1,22 @@
 @import 'tailwindcss';
 
+@custom-variant fit (@media (min-width: 1024px) and (min-height: 820px));
+
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-bg: #080b12;
-  --color-panel: #10151f;
-  --color-panel-2: #151b27;
-  --color-line: #202938;
-  --color-line-2: #2b3547;
+  --color-bg: #0b0a14;
+  --color-card: #14121f;
+  --color-line: #252238;
 
-  --color-ink: #e6e9f0;
-  --color-ink-2: #a3acbd;
-  --color-ink-3: #6b7588;
+  --color-ink: #ece9f5;
+  --color-ink-2: #a9a4bf;
+  --color-ink-3: #6f6a88;
 
-  --color-primary: #7c83fd;
-  --color-primary-2: #a78bfa;
-  --color-alert: #f05252;
-  --color-warn: #f5a524;
-  --color-ok: #22c55e;
+  --color-lilac: #a78bfa;
+  --color-violet: #8b5cf6;
+  --color-rose: #e9a8d8;
+  --color-alert: #ef5b6b;
 }
 
 :root {
@@ -35,15 +33,6 @@ body {
 
 .tabular {
   font-variant-numeric: tabular-nums;
-}
-
-.scroll-thin {
-  scrollbar-width: thin;
-  scrollbar-color: #2b3547 transparent;
-}
-
-select {
-  background-image: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,54 +1,30 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
-import { FilterBar } from './components/layout/FilterBar'
-import { Footer } from './components/layout/Footer'
-import { Header } from './components/layout/Header'
-import { NAV } from './components/layout/navigation'
-import { Sidebar } from './components/layout/Sidebar'
-import { IncidentDrawer } from './components/widgets/IncidentDrawer'
-import { PAGES } from './pages/registry'
-import { DashboardProvider } from './state/DashboardProvider'
-import { useDashboard } from './state/dashboardStore'
+import { DataNote } from './components/DataNote'
+import { Header } from './components/Header'
+import { KpiCards } from './components/KpiCards'
+import { TimeCounter } from './components/TimeCounter'
+import { TimelineChart } from './components/TimelineChart'
+import { UkraineMap } from './components/UkraineMap'
+import { ViolenceChart } from './components/ViolenceChart'
+import { DEMO_INCIDENTS } from './data/demoIncidents'
+import { computeKpis } from './utils/stats'
 
-function Shell() {
-  const { page } = useDashboard()
-  const [filtersOpen, setFiltersOpen] = useState(() => window.matchMedia('(min-width: 768px)').matches)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const Page = PAGES[page]
-  const label = NAV.find((n) => n.id === page)?.label
+const kpis = computeKpis(DEMO_INCIDENTS)
 
-  return (
-    <div className="min-h-screen">
-      <Sidebar mobileOpen={menuOpen} onCloseMobile={() => setMenuOpen(false)} />
-      <div className="md:pl-16 lg:pl-56">
-        <Header filtersOpen={filtersOpen} onToggleFilters={() => setFiltersOpen((o) => !o)} onOpenMenu={() => setMenuOpen(true)} />
-        <AnimatePresence initial={false}>
-          {filtersOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden"
-            >
-              <FilterBar />
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <main className="space-y-4 p-4 lg:p-6">
-          {page !== 'overview' && <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">{label}</p>}
-          <Page key={page} />
-        </main>
-        <Footer />
-      </div>
-      <IncidentDrawer />
-    </div>
-  )
-}
-
+/** The single dashboard screen. On desktop it fits the viewport height. */
 export default function App() {
   return (
-    <DashboardProvider>
-      <Shell />
-    </DashboardProvider>
+    <div className="flex min-h-screen flex-col fit:h-screen">
+      <Header />
+      <main className="flex min-h-0 flex-1 flex-col gap-3 p-4 lg:px-6">
+        <KpiCards kpis={kpis} />
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-3 lg:grid-cols-3 fit:grid-rows-2">
+          <TimelineChart records={DEMO_INCIDENTS} className="lg:col-span-2" />
+          <TimeCounter />
+          <ViolenceChart records={DEMO_INCIDENTS} className="lg:col-span-2" />
+          <UkraineMap records={DEMO_INCIDENTS} />
+        </div>
+        <DataNote />
+      </main>
+    </div>
   )
 }

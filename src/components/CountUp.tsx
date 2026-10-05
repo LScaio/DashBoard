@@ -9,7 +9,7 @@ interface CountUpProps {
 }
 
 /** Animates a number from its previous value to `value` once visible. */
-export function CountUp({ value, duration = 1.2, format = (n) => Math.round(n).toLocaleString('en-US'), className }: CountUpProps) {
+export function CountUp({ value, duration = 1.2, format = (n) => Math.round(n).toLocaleString('pt-BR'), className }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
   const reduce = useReducedMotion()
