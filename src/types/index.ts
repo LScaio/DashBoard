@@ -1,4 +1,4 @@
-/** Domain types for the Ciência Delas Data Lab prototype. All records are DEMO DATA. */
+/** Domain types for the Ciência Delas dashboard prototype. All records are DEMO DATA. */
 
 export type RegionId =
   | 'volyn'
@@ -64,16 +64,3 @@ export interface Incident {
   verification: Verification
   status: RecordStatus
 }
-
-export interface Filters {
-  yearFrom: number
-  yearTo: number
-  region: RegionId | 'all'
-  type: ViolenceType | 'all'
-  victimGroup: VictimGroup | 'all'
-  verification: Verification | 'all'
-}
-
-export type PageId = 'overview' | 'timeline' | 'geographic' | 'violence' | 'women' | 'incidents' | 'sources'
-
-export type Confidence = 'High' | 'Medium' | 'Low'
