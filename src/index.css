@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@custom-variant fit (@media (min-width: 1024px) and (min-height: 820px));
-
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
@@ -17,6 +15,8 @@
   --color-violet: #8b5cf6;
   --color-rose: #e9a8d8;
   --color-alert: #ef5b6b;
+  /* Data status: documented values use lilac; estimates use this pink, always with a text label and "≈" */
+  --color-estimate: #f59ccf;
 }
 
 :root {
@@ -33,6 +33,12 @@ body {
 
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+/* Fill for estimated values: a translucent wash of the estimate colour, never a solid block */
+.fill-estimate {
+  background: color-mix(in srgb, var(--color-estimate) 55%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-estimate) 70%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {

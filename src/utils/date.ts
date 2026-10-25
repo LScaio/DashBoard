@@ -1,34 +1,11 @@
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
 export function parseISODate(iso: string): Date {
   const [y, m, d] = iso.split('-').map(Number)
   return new Date(Date.UTC(y, m - 1, d))
 }
 
-export function todayISO(): string {
-  const now = new Date()
-  return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())).toISOString().slice(0, 10)
-}
-
-/** "12 Mar 2024" */
-export function formatDate(iso: string): string {
-  const d = parseISODate(iso)
-  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`
-}
-
-/** "2024-03" → "Mar 2024" */
-export function formatMonthKey(key: string): string {
-  const [y, m] = key.split('-').map(Number)
-  return `${MONTHS[m - 1]} ${y}`
-}
-
-/** Shifts an ISO date by a number of months (day clamped to month length). */
-export function addMonths(iso: string, delta: number): string {
-  const d = parseISODate(iso)
-  const target = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + delta, 1))
-  const last = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate()
-  target.setUTCDate(Math.min(d.getUTCDate(), last))
-  return target.toISOString().slice(0, 10)
+/** Local calendar date of `d` as ISO (YYYY-MM-DD). */
+export function toISODate(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 }
 
 export interface Duration {
