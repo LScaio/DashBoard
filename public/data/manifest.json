@@ -1,0 +1,9 @@
+{
+ "version": "2026-11-06T00:00:00Z",
+ "datasets": [
+  "ohchr-civilian-casualties",
+  "ohchr-crsv-report",
+  "pgo-crsv",
+  "unhcr-displacement"
+ ]
+}

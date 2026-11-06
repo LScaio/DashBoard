@@ -1,0 +1,43 @@
+name: Atualizar dados
+
+# Checks the official sources once a day. Data files change only when a source
+# published something newer AND every integrity check passes (see
+# scripts/update-data.mjs); otherwise the last verified data stays online.
+on:
+  schedule:
+    - cron: '23 9 * * *' # daily at 09:23 UTC (06:23 in Brasília)
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit refreshed data files
+  actions: write # start the Pages deployment
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install poppler (PDF reader)
+        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends poppler-utils
+      - name: Check official sources
+        id: update
+        run: node scripts/update-data.mjs
+      - name: Commit new data and redeploy
+        if: steps.update.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          git commit -m "dados: atualização automática das fontes oficiais"
+          git push
+          # Pushes made with GITHUB_TOKEN don't trigger workflows; a manual dispatch does.
+          gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"

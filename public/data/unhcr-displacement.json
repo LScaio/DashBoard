@@ -1,0 +1,50 @@
+{
+ "id": "unhcr-displacement",
+ "institution": "ACNUR (UNHCR) — Agência da ONU para Refugiados",
+ "document": "Refugee Data Finder — API de estatísticas populacionais (população de origem: Ucrânia)",
+ "apiUrl": "https://api.unhcr.org/population/v1/",
+ "pageUrl": "https://www.unhcr.org/refugee-statistics/",
+ "retrievedAt": "2026-11-06",
+ "updateMethod": "api",
+ "unit": "pessoas refugiadas (fora da Ucrânia) e deslocadas internas, situação em 31 de dezembro de cada ano",
+ "years": [
+  {
+   "year": 2021,
+   "refugees": 27562,
+   "idps": 854000
+  },
+  {
+   "year": 2022,
+   "refugees": 5684177,
+   "idps": 5914000
+  },
+  {
+   "year": 2023,
+   "refugees": 5960362,
+   "idps": 3689000
+  },
+  {
+   "year": 2024,
+   "refugees": 5120036,
+   "idps": 3665000
+  },
+  {
+   "year": 2025,
+   "refugees": 5224131,
+   "idps": 3712000
+  }
+ ],
+ "latest": {
+  "year": 2025,
+  "refugees": {
+   "total": 5224131,
+   "female": 2707763,
+   "male": 1934640
+  },
+  "idps": {
+   "total": 3712000,
+   "female": 2140074,
+   "male": 1571926
+  }
+ }
+}
