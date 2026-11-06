@@ -1,0 +1,91 @@
+{
+ "id": "pgo-crsv",
+ "institution": "Procuradoria-Geral da Ucrânia (Офіс Генерального прокурора)",
+ "officialUrl": "https://gp.gov.ua/",
+ "unit": "fatos de violência sexual relacionada ao conflito cometidos por militares russos contra civis, registrados em investigações criminais (não inclui prisioneiros de guerra; cada fato corresponde a uma vítima)",
+ "updateMethod": "manual",
+ "retrievedAt": "2026-11-06",
+ "note": "A Procuradoria divulga esses números em comunicados e entrevistas, sem base de dados aberta. Cada divulgação listada foi conferida em reportagens que citam a Procuradoria, e a soma por sexo confere com o total em todas elas.",
+ "snapshots": [
+  {
+   "date": "2025-03-03",
+   "total": 344,
+   "female": 220,
+   "male": 124,
+   "minors": 17,
+   "regions": {
+    "UA-65": 110,
+    "UA-14": 81,
+    "UA-32": 60,
+    "UA-63": 40,
+    "UA-23": 23,
+    "UA-48": 10,
+    "UA-74": 8,
+    "UA-09": 8,
+    "UA-59": 3,
+    "UA-43": 1
+   },
+   "sources": [
+    {
+     "label": "LB.ua, 14/03/2025",
+     "url": "https://lb.ua/society/2025/03/14/665637_ofis_genprokurora_zafiksuvav_344.html"
+    },
+    {
+     "label": "Hromadske Radio, 14/03/2025",
+     "url": "https://hromadske.radio/news/2025/03/14/prokurory-zafiksuvaly-344-vypadky-seksualnoho-nasylstva-pov-iazanykh-z-viynoiu"
+    }
+   ]
+  },
+  {
+   "date": "2025-06-19",
+   "total": 366,
+   "female": 231,
+   "male": 135,
+   "minors": 19,
+   "sources": [
+    {
+     "label": "Rádio Svoboda, 19/06/2025",
+     "url": "https://www.radiosvoboda.org/a/news-ohp-seksualne-nasylstvo-viyna/33449190.html"
+    },
+    {
+     "label": "Ministério das Relações Exteriores da Ucrânia",
+     "url": "https://mfa.gov.ua/news/komentar-mzs-do-mizhnarodnogo-dnya-borotbi-z-seksualnim-nasilstvom-povyazanim-z-konfliktom"
+    }
+   ]
+  },
+  {
+   "date": "2025-08-01",
+   "total": 372,
+   "female": 236,
+   "male": 136,
+   "minors": 20,
+   "sources": [
+    {
+     "label": "ZMINA",
+     "url": "https://zmina.info/news/z-2022-roku-prokurory-zafiksuvaly-372-vypadky-seksualnoho-nasylstva-pid-chas-vijny/"
+    },
+    {
+     "label": "Grupo de Direitos Humanos de Kharkiv (KHPG)",
+     "url": "https://khpg.org/1608814893"
+    }
+   ]
+  },
+  {
+   "date": "2026-06-19",
+   "total": 401,
+   "female": 250,
+   "male": 151,
+   "minors": 24,
+   "sources": [
+    {
+     "label": "Interfax-Ukraine, 19/06/2026",
+     "url": "https://interfax.com.ua/news/general/1177878.html"
+    },
+    {
+     "label": "Rádio Svoboda, 19/06/2026",
+     "url": "https://www.radiosvoboda.org/a/news-kravchenko-viiskovi-rf-seksualne-nasylstvo-401-tsyvilnyi-v-ukraini/33784549.html"
+    }
+   ]
+  }
+ ]
+}

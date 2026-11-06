@@ -1,0 +1,333 @@
+{
+ "id": "ohchr-civilian-casualties",
+ "institution": "ACNUDH (OHCHR) — Missão de Monitoramento dos Direitos Humanos da ONU na Ucrânia (HRMMU)",
+ "document": "Ukraine — Protection of Civilians in Armed Conflict: September 2026 update",
+ "pageUrl": "https://ukraine.ohchr.org/en/Protection-of-Civilians-in-Armed-Conflict-September-2026",
+ "pdfUrl": "https://ukraine.ohchr.org/sites/default/files/2026-10/Ukraine%20-%20protection%20of%20civilians%20in%20armed%20conflict%20%28September%202026%29_ENG.pdf",
+ "listUrl": "https://ukraine.ohchr.org/en/reports/protection-of-civilians",
+ "publishedAt": "2026-10-15",
+ "periodStart": "2022-02-24",
+ "periodEnd": "2026-09-30",
+ "retrievedAt": "2026-11-06",
+ "updateMethod": "automatic",
+ "unit": "pessoas civis mortas ou feridas (casos verificados)",
+ "cumulative": {
+  "killed": {
+   "men": 9294,
+   "women": 5594,
+   "adultsUnknown": 1867,
+   "boys": 462,
+   "girls": 361,
+   "childrenUnknown": 27,
+   "total": 17605
+  },
+  "injured": {
+   "men": 25700,
+   "women": 19299,
+   "adultsUnknown": 7474,
+   "boys": 1738,
+   "girls": 1350,
+   "childrenUnknown": 285,
+   "total": 55846
+  }
+ },
+ "latestMonth": {
+  "month": "2026-09",
+  "killed": {
+   "men": 218,
+   "women": 95,
+   "boys": 10,
+   "girls": 5,
+   "total": 328
+  },
+  "injured": {
+   "men": 1141,
+   "women": 841,
+   "boys": 63,
+   "girls": 60,
+   "total": 2105
+  }
+ },
+ "monthly": [
+  {
+   "month": "2022-02",
+   "killed": 378,
+   "injured": 469
+  },
+  {
+   "month": "2022-03",
+   "killed": 4313,
+   "injured": 3019
+  },
+  {
+   "month": "2022-04",
+   "killed": 842,
+   "injured": 1905
+  },
+  {
+   "month": "2022-05",
+   "killed": 589,
+   "injured": 1152
+  },
+  {
+   "month": "2022-06",
+   "killed": 435,
+   "injured": 1109
+  },
+  {
+   "month": "2022-07",
+   "killed": 390,
+   "injured": 1154
+  },
+  {
+   "month": "2022-08",
+   "killed": 347,
+   "injured": 922
+  },
+  {
+   "month": "2022-09",
+   "killed": 415,
+   "injured": 986
+  },
+  {
+   "month": "2022-10",
+   "killed": 317,
+   "injured": 795
+  },
+  {
+   "month": "2022-11",
+   "killed": 189,
+   "injured": 542
+  },
+  {
+   "month": "2022-12",
+   "killed": 208,
+   "injured": 617
+  },
+  {
+   "month": "2023-01",
+   "killed": 205,
+   "injured": 539
+  },
+  {
+   "month": "2023-02",
+   "killed": 144,
+   "injured": 457
+  },
+  {
+   "month": "2023-03",
+   "killed": 183,
+   "injured": 590
+  },
+  {
+   "month": "2023-04",
+   "killed": 189,
+   "injured": 493
+  },
+  {
+   "month": "2023-05",
+   "killed": 178,
+   "injured": 687
+  },
+  {
+   "month": "2023-06",
+   "killed": 186,
+   "injured": 693
+  },
+  {
+   "month": "2023-07",
+   "killed": 166,
+   "injured": 690
+  },
+  {
+   "month": "2023-08",
+   "killed": 158,
+   "injured": 561
+  },
+  {
+   "month": "2023-09",
+   "killed": 145,
+   "injured": 548
+  },
+  {
+   "month": "2023-10",
+   "killed": 181,
+   "injured": 433
+  },
+  {
+   "month": "2023-11",
+   "killed": 113,
+   "injured": 363
+  },
+  {
+   "month": "2023-12",
+   "killed": 127,
+   "injured": 597
+  },
+  {
+   "month": "2024-01",
+   "killed": 169,
+   "injured": 524
+  },
+  {
+   "month": "2024-02",
+   "killed": 156,
+   "injured": 360
+  },
+  {
+   "month": "2024-03",
+   "killed": 130,
+   "injured": 498
+  },
+  {
+   "month": "2024-04",
+   "killed": 141,
+   "injured": 603
+  },
+  {
+   "month": "2024-05",
+   "killed": 182,
+   "injured": 732
+  },
+  {
+   "month": "2024-06",
+   "killed": 162,
+   "injured": 725
+  },
+  {
+   "month": "2024-07",
+   "killed": 248,
+   "injured": 1118
+  },
+  {
+   "month": "2024-08",
+   "killed": 204,
+   "injured": 936
+  },
+  {
+   "month": "2024-09",
+   "killed": 215,
+   "injured": 1268
+  },
+  {
+   "month": "2024-10",
+   "killed": 198,
+   "injured": 940
+  },
+  {
+   "month": "2024-11",
+   "killed": 174,
+   "injured": 912
+  },
+  {
+   "month": "2024-12",
+   "killed": 109,
+   "injured": 522
+  },
+  {
+   "month": "2025-01",
+   "killed": 149,
+   "injured": 770
+  },
+  {
+   "month": "2025-02",
+   "killed": 131,
+   "injured": 592
+  },
+  {
+   "month": "2025-03",
+   "killed": 179,
+   "injured": 922
+  },
+  {
+   "month": "2025-04",
+   "killed": 223,
+   "injured": 1169
+  },
+  {
+   "month": "2025-05",
+   "killed": 191,
+   "injured": 865
+  },
+  {
+   "month": "2025-06",
+   "killed": 249,
+   "injured": 1416
+  },
+  {
+   "month": "2025-07",
+   "killed": 312,
+   "injured": 1482
+  },
+  {
+   "month": "2025-08",
+   "killed": 260,
+   "injured": 949
+  },
+  {
+   "month": "2025-09",
+   "killed": 249,
+   "injured": 1068
+  },
+  {
+   "month": "2025-10",
+   "killed": 183,
+   "injured": 1021
+  },
+  {
+   "month": "2025-11",
+   "killed": 242,
+   "injured": 1006
+  },
+  {
+   "month": "2025-12",
+   "killed": 181,
+   "injured": 916
+  },
+  {
+   "month": "2026-01",
+   "killed": 167,
+   "injured": 767
+  },
+  {
+   "month": "2026-02",
+   "killed": 195,
+   "injured": 761
+  },
+  {
+   "month": "2026-03",
+   "killed": 218,
+   "injured": 1242
+  },
+  {
+   "month": "2026-04",
+   "killed": 242,
+   "injured": 1423
+  },
+  {
+   "month": "2026-05",
+   "killed": 285,
+   "injured": 1796
+  },
+  {
+   "month": "2026-06",
+   "killed": 298,
+   "injured": 2056
+  },
+  {
+   "month": "2026-07",
+   "killed": 448,
+   "injured": 2695
+  },
+  {
+   "month": "2026-08",
+   "killed": 389,
+   "injured": 2366
+  },
+  {
+   "month": "2026-09",
+   "killed": 328,
+   "injured": 2105
+  }
+ ]
+}

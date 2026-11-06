@@ -1,0 +1,141 @@
+{
+ "id": "ohchr-crsv-report",
+ "institution": "ACNUDH (OHCHR) — Missão de Monitoramento dos Direitos Humanos da ONU na Ucrânia (HRMMU)",
+ "document": "Sexual violence in the context of the Russian Federation full-scale armed attack against Ukraine, 24 February 2022 – 31 July 2026 (A/HRC/63/CRP.2)",
+ "pageUrl": "https://www.ohchr.org/en/documents/country-reports/ahrc63crp2-sexual-violence-context-russian-federation-full-scale-armed",
+ "pdfUrl": "https://www.ohchr.org/sites/default/files/documents/hrbodies/hrcouncil/sessions-regular/session63/a-hrc-63-crp-2.pdf",
+ "publishedAt": "2026-09-21",
+ "periodStart": "2022-02-24",
+ "periodEnd": "2026-07-31",
+ "retrievedAt": "2026-11-06",
+ "updateMethod": "manual",
+ "unit": "casos documentados (cada caso corresponde a uma pessoa sobrevivente e pode envolver vários incidentes)",
+ "total": 1004,
+ "totalNote": "inclui 984 casos ocorridos no período e 20 casos anteriores a 2022 que não haviam sido relatados — nota 6 do relatório",
+ "contexts": [
+  {
+   "id": "pow",
+   "label": "Prisioneiros de guerra e pessoal médico ucranianos",
+   "perpetrator": "russia",
+   "women": 27,
+   "girls": 0,
+   "men": 545,
+   "boys": 0,
+   "ref": "par. 17"
+  },
+  {
+   "id": "civ-detention",
+   "label": "Civis ucranianos detidos",
+   "perpetrator": "russia",
+   "women": 48,
+   "girls": 0,
+   "men": 156,
+   "boys": 1,
+   "ref": "par. 31"
+  },
+  {
+   "id": "civ-residential",
+   "label": "Civis fora de detenção, em áreas ocupadas",
+   "perpetrator": "russia",
+   "women": 72,
+   "girls": 14,
+   "men": 8,
+   "boys": 1,
+   "ref": "par. 42"
+  },
+  {
+   "id": "pre-2022",
+   "label": "Casos de 2014–2022 relatados no período",
+   "perpetrator": "russia",
+   "women": 4,
+   "girls": 0,
+   "men": 16,
+   "boys": 0,
+   "ref": "par. 32 e 42"
+  },
+  {
+   "id": "ua-pow",
+   "label": "Prisioneiros de guerra russos e de outros países",
+   "perpetrator": "ukraine",
+   "women": 0,
+   "girls": 0,
+   "men": 63,
+   "boys": 0,
+   "ref": "par. 61"
+  },
+  {
+   "id": "ua-detainees",
+   "label": "Pessoas detidas por crimes ligados ao conflito",
+   "perpetrator": "ukraine",
+   "women": 14,
+   "girls": 0,
+   "men": 35,
+   "boys": 0,
+   "ref": "par. 69"
+  }
+ ],
+ "byPerpetrator": {
+  "russia": {
+   "label": "Autoridades da Federação Russa",
+   "total": 892,
+   "women": 151,
+   "girls": 14,
+   "men": 725,
+   "boys": 2,
+   "ref": "par. 16"
+  },
+  "ukraine": {
+   "label": "Autoridades da Ucrânia",
+   "total": 112,
+   "women": 14,
+   "girls": 0,
+   "men": 98,
+   "boys": 0,
+   "ref": "par. 60"
+  }
+ },
+ "rapeWomenGirls": {
+  "total": 68,
+  "gangRape": 18,
+  "ref": "par. 18, 33 e 43",
+  "parts": [
+   {
+    "context": "pow",
+    "women": 3,
+    "girls": 0,
+    "gangRape": 1
+   },
+   {
+    "context": "civ-detention",
+    "women": 9,
+    "girls": 0,
+    "gangRape": 2
+   },
+   {
+    "context": "civ-residential",
+    "women": 46,
+    "girls": 10,
+    "gangRape": 15
+   }
+  ]
+ },
+ "rapeAgeRange": {
+  "min": 4,
+  "max": 82,
+  "context": "civ-residential",
+  "ref": "par. 43"
+ },
+ "residentialRegions": {
+  "iso": [
+   "UA-14",
+   "UA-09",
+   "UA-63",
+   "UA-23",
+   "UA-65",
+   "UA-74",
+   "UA-48",
+   "UA-32"
+  ],
+  "ref": "par. 55 e nota 42"
+ }
+}

@@ -1,38 +1,183 @@
 @import 'tailwindcss';
 
-@custom-variant fit (@media (min-width: 1024px) and (min-height: 820px));
+/* `dark:` follows the theme toggle (data-theme on <html>), not the OS setting. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-@theme {
+/*
+ * Design tokens. Every color is a CSS variable redefined per theme, so cards,
+ * charts (SVG fills/strokes use var(--…)) and the map all switch together.
+ * Series colors were validated for color-vision deficiency and contrast in
+ * both themes (violet = physical violence, magenta = sexual violence,
+ * amber = forced displacement; women & girls take the type hue, men gray).
+ */
+@theme inline {
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --color-bg: #0b0a14;
-  --color-card: #14121f;
-  --color-line: #252238;
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-line: var(--line);
+  --color-grid: var(--grid);
 
-  --color-ink: #ece9f5;
-  --color-ink-2: #a9a4bf;
-  --color-ink-3: #6f6a88;
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
 
-  --color-lilac: #a78bfa;
-  --color-violet: #8b5cf6;
-  --color-rose: #e9a8d8;
-  --color-alert: #ef5b6b;
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-phys: var(--phys);
+  --color-phys-2: var(--phys-2);
+  --color-sex: var(--sex);
+  --color-sex-2: var(--sex-2);
+  --color-disp: var(--disp);
+  --color-disp-2: var(--disp-2);
+  --color-men: var(--men);
+  --color-men-2: var(--men-2);
+  --color-unknown: var(--unknown);
+
+  --color-recent: var(--recent);
+  --color-recent-soft: var(--recent-soft);
 }
 
 :root {
+  color-scheme: light;
+  --bg: #f6f4fa;
+  --card: #ffffff;
+  --card-2: #f3f0f9;
+  --line: #e4ddef;
+  --grid: #ece7f4;
+
+  --ink: #1b1530;
+  --ink-2: #4b4463;
+  --ink-3: #655e7e;
+
+  --accent: #5a3cc0;
+  --accent-ink: #ffffff;
+  --accent-soft: #eee8fb;
+
+  --phys: #6b4bd6;
+  --phys-2: #c3b5f3;
+  --sex: #c23a88;
+  --sex-2: #efb8d6;
+  --disp: #a8740a;
+  --disp-2: #e6cf9c;
+  --men: #a6a0b8;
+  --men-2: #d3cfdd;
+  --unknown: #e7e4ee;
+
+  --recent: #a1286f;
+  --recent-soft: #fbe8f3;
+
+  /* Choropleth: one purple hue, light → dark = fewer → more records. */
+  --map-0: #eeecf2;
+  --map-1: #d6c6f8;
+  --map-2: #b9a0f0;
+  --map-3: #9271e0;
+  --map-4: #6c45c8;
+  --map-5: #47239a;
+  --map-label-light: #ffffff;
+  --map-label-dark: #1b1530;
+  --map-stroke: #ffffff;
+
+  /* Hero counter */
+  --hero-from: #3b1d8f;
+  --hero-to: #7a2a8f;
+}
+
+[data-theme='dark'] {
   color-scheme: dark;
+  --bg: #0d0a16;
+  --card: #161226;
+  --card-2: #1d1830;
+  --line: #2b2542;
+  --grid: #241f38;
+
+  --ink: #f1ecfa;
+  --ink-2: #bdb4d4;
+  --ink-3: #958daf;
+
+  --accent: #b8a4ff;
+  --accent-ink: #160f2e;
+  --accent-soft: #261e45;
+
+  --phys: #8a6ff0;
+  --phys-2: #4b3d86;
+  --sex: #d0509a;
+  --sex-2: #6e2b55;
+  --disp: #b88418;
+  --disp-2: #5e4615;
+  --men: #6d6787;
+  --men-2: #3f3a55;
+  --unknown: #2c2840;
+
+  --recent: #f08cc4;
+  --recent-soft: #3a1a33;
+
+  /* Dark theme: more records = brighter, more intense purple. */
+  --map-0: #221e30;
+  --map-1: #3b2c6b;
+  --map-2: #563f9e;
+  --map-3: #7a5ed2;
+  --map-4: #a48af2;
+  --map-5: #d3c4ff;
+  --map-label-light: #f1ecfa;
+  --map-label-dark: #160f2e;
+  --map-stroke: #161226;
+
+  --hero-from: #2a1470;
+  --hero-to: #5c1f6e;
+}
+
+html {
+  background: var(--bg);
 }
 
 body {
   margin: 0;
-  background: var(--color-bg);
-  color: var(--color-ink);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Soft pulse for "live" / "just updated" indicators. */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes flash-update {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--recent) 45%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+.flash-update {
+  animation: flash-update 1.2s ease-out 3;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -40,6 +185,7 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

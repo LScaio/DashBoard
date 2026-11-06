@@ -1,15 +1,24 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ciência Delas — dashboard protótipo sobre violência contra mulheres no contexto da guerra da Ucrânia. Dados demonstrativos." />
-    <meta name="theme-color" content="#0b0a14" />
+    <meta
+      name="description"
+      content="Ciência Delas — dashboard sobre o impacto da guerra na Ucrânia sobre mulheres e meninas, com dados verificados da ONU e da Procuradoria-Geral da Ucrânia."
+    />
+    <meta name="theme-color" content="#f6f4fa" />
+    <script>
+      // Apply the saved theme before first paint (light is the default).
+      try {
+        if (localStorage.getItem('cd-theme') === 'dark') document.documentElement.dataset.theme = 'dark'
+      } catch (e) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>Ciência Delas — Mulheres e conflito</title>
+    <title>Ciência Delas — Mulheres e conflito na Ucrânia</title>
   </head>
   <body>
     <div id="root"></div>
