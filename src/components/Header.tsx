@@ -25,7 +25,7 @@ export function Header({ theme, onToggleTheme, status, subtitle = 'Mulheres e co
             CD
           </span>
           <span className="min-w-0 leading-tight">
-            <span className="block text-[15px] font-bold tracking-[0.16em] text-ink">ELAS EM ZONA DE GUERRA: VISUALIZAÇÃO DE DADOS SOBRE A VIÔLENCIA CONTRA MULHERES NOS CONFLITOS ENTRE RÚSSIA E UCRÂNIA</span>
+            <span className="block text-[15px] font-bold tracking-[0.16em] text-ink">ELAS EM ZONA DE GUERRAA: VISUALIZAÇÃO DE DADOS SOBRE A VIÔLENCIA CONTRA MULHERES NOS CONFLITOS ENTRE RÚSSIA E UCRÂNIA</span>
             <span className="block truncate text-[12.5px] text-ink-2">{subtitle}</span>
           </span>
         </a>
