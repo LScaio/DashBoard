@@ -34,14 +34,19 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Header theme={theme} onToggleTheme={toggleTheme} status={data ? <Status data={data} /> : null} />
+      <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="mx-auto w-full max-w-[1440px] flex-1 space-y-3 px-4 py-4 sm:px-6 sm:py-5">
-        <div className="flex flex-wrap items-end justify-between gap-2 pb-1">
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2 pb-1">
           <p className="max-w-3xl text-[14px] leading-snug text-ink-2">
             O impacto da guerra na Ucrânia sobre mulheres e meninas, em números verificados por organismos da ONU e pela Justiça ucraniana.
             Cada número indica a fonte, o período e a data em que foi publicado.
           </p>
+          {data && (
+            <div className="hidden shrink-0 lg:block">
+              <Status data={data} />
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
