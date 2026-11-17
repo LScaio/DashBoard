@@ -27,7 +27,7 @@ export function Header({ theme, onToggleTheme, subtitle = 'Mulheres e conflito �
           </span>
           <span className="min-w-0">
             <span className="block max-w-[1000px] text-balance text-[13px] font-bold leading-snug tracking-[0.06em] text-ink sm:text-[15px] sm:tracking-[0.08em]">
-              ELAS EM ZONA DE GUERRAA: VISUALIZAÇÃO DE DADOS SOBRE A VIÔLENCIA CONTRA MULHERES NOS CONFLITOS ENTRE RÚSSIA E UCRÂNIA
+              ELAS EM ZONA DE GUERRA: VISUALIZAÇÃO DE DADOS SOBRE A VIÔLENCIA CONTRA MULHERES NOS CONFLITOS ENTRE RÚSSIA E UCRÂNIA
             </span>
             <span className="mt-0.5 block truncate text-[12.5px] text-ink-2">{subtitle}</span>
           </span>
